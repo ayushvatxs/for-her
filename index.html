@@ -168,15 +168,15 @@
 <body>
 
     <div class="card">
-        <h1>Hey Ammai 🌸</h1>
+        <h1>Hey Violaa 🌸</h1>
         <p class="subtitle">A tiny, cute space just for you.</p>
         
         <div class="grid">
             <!-- Replace "YOUR_YOUTUBE_LINK_HERE" with her actual playlist link -->
-            <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="box box1">Need a<br>Distraction 🎵</a>
+            <a href="https://youtube.com/playlist?list=PL5XH-JDaLdWHpFlYNi2CUmgePwhyelU22&si=Ab7MWJ-EtGqoiEUM" target="_blank" class="box box1">Need a<br>Distraction 🎵</a>
             <div class="box box2" onclick="showReminder()">A Little<br>Reminder 💌</div>
             <div class="box box3" onclick="triggerTreat()">Virtual<br>Treat 🍰</div>
-            <div class="box box4" onclick="showHug()">Emergency<br>Hug 🧸</div>
+            <div class="box box4" onclick="giveChocolate()">Infinite<br>Chocolate 🍫</div>
         </div>
 
         <div id="display-area"></div>
@@ -184,6 +184,7 @@
 
     <script>
         const displayArea = document.getElementById('display-area');
+        let chocolateCount = 0;
 
         // Edit these reminders to say whatever you want!
         const reminders = [
@@ -196,6 +197,7 @@
         function clearDisplay() {
             displayArea.style.display = 'none';
             displayArea.innerHTML = '';
+            chocolateCount = 0;
         }
 
         function showDisplay() {
@@ -209,10 +211,25 @@
             showDisplay();
         }
 
-        function showHug() {
-            clearDisplay();
-            displayArea.innerHTML = "<strong>Sending a giant, squishy hug!</strong><div class='css-heart'></div>";
-            showDisplay();
+        function giveChocolate() {
+            if (chocolateCount === 0) {
+                displayArea.style.display = 'flex';
+                displayArea.innerHTML = "<strong>Keep clicking the button to build your stash!</strong><br><div id='choco-pile' style='font-size: 2rem; margin-top: 15px; word-wrap: break-word; line-height: 1.2;'></div><div id='choco-msg' style='font-size: 0.9em; margin-top: 10px; color: #9d8189;'></div>";
+            }
+            
+            const pile = document.getElementById('choco-pile');
+            const msg = document.getElementById('choco-msg');
+            
+            const chocoTypes = ['🍫', '🍪', '🍩', '🤎'];
+            const randomChoco = chocoTypes[Math.floor(Math.random() * chocoTypes.length)];
+            
+            pile.innerHTML += randomChoco;
+            chocolateCount++;
+
+            if (chocolateCount === 10) msg.innerHTML = "Whoa, that's a lot of chocolate! 😲";
+            if (chocolateCount === 30) msg.innerHTML = "Are you going to share any of that with me? 😂";
+            if (chocolateCount === 50) msg.innerHTML = "Chocolate coma incoming... 🚑🍫";
+            if (chocolateCount === 100) msg.innerHTML = "Okay, you are officially the Chocolate Queen! 👑";
         }
 
         function triggerTreat() {
