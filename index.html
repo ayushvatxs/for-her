@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You ❤️</title>
+    <title>For Ammai 🌸</title>
+    <!-- Importing a cute, rounded font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
     <style>
-        /* Calming, slow-moving pastel gradient background */
+        /* Cute Pastel Background */
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #fddb92, #d4fc79);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #4a4a4a;
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffe6ea;
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%), radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -20,172 +22,219 @@
             min-height: 100vh;
             text-align: center;
             padding: 20px;
-            box-sizing: border-box;
+            color: #5c4d5c;
+            overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Glassmorphism card effect */
-        .container {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 40px 30px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        h1 { 
-            color: #6a5acd; 
-            margin-top: 0;
-            margin-bottom: 10px; 
-            font-size: 2.2em; 
-            letter-spacing: 1px;
-        }
-
-        p.subtitle { 
-            font-size: 1.1em; 
-            color: #666; 
-            margin-bottom: 30px; 
-            line-height: 1.5;
-        }
-
-        /* Soft, pill-shaped buttons */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        button {
-            background: rgba(255, 255, 255, 0.8);
-            border: 2px solid #a6c1ee;
-            border-radius: 50px;
-            padding: 14px 24px;
-            font-size: 1.05em;
-            font-weight: bold;
-            color: #6a5acd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(166, 193, 238, 0.3);
-        }
-
-        button:hover { 
-            background: #a6c1ee; 
-            color: #fff; 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 20px rgba(166, 193, 238, 0.5);
-        }
-
-        /* Dynamic message display area */
-        #message-box {
-            margin-top: 30px;
-            min-height: 60px;
-            padding: 20px;
-            border-radius: 15px;
+        /* Main Card */
+        .card {
             background: rgba(255, 255, 255, 0.9);
-            display: none;
+            border-radius: 30px;
+            padding: 40px 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(255, 143, 171, 0.2);
+            border: 4px solid #fff;
+        }
+
+        h1 {
+            color: #ff758f;
+            margin-top: 0;
+            font-size: 2.2em;
+        }
+
+        p.subtitle {
+            color: #9d8189;
             font-size: 1.1em;
-            color: #555;
-            line-height: 1.6;
-            animation: fadeIn 0.6s ease;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
         }
 
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(10px); } 
-            to { opacity: 1; transform: translateY(0); } 
+        /* 2x2 Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        /* CSS-only breathing circle animation */
-        .breathe-container {
-            height: 140px;
-            display: none;
+        /* Cute Squishy Boxes */
+        .box {
+            text-decoration: none;
+            display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 20px;
-            margin-bottom: -10px;
-        }
-
-        .breathe-circle {
-            width: 80px;
+            padding: 20px 10px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            font-weight: 800;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border: 3px solid rgba(255,255,255,0.5);
+            text-align: center;
             height: 80px;
-            background: radial-gradient(circle, #a6c1ee 0%, #fbc2eb 100%);
-            border-radius: 50%;
-            animation: breatheAnim 8s infinite ease-in-out;
-            box-shadow: 0 0 20px rgba(166, 193, 238, 0.6);
         }
 
-        @keyframes breatheAnim {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.6); opacity: 0.3; }
-            100% { transform: scale(1); opacity: 0.8; }
+        .box:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+
+        .box:active {
+            transform: scale(0.95);
+        }
+
+        /* Individual Box Colors */
+        .box1 { background: #ffb5a7; color: #6a4c4c; } /* Distraction - Peach */
+        .box2 { background: #fec5bb; color: #6a4c4c; } /* Reminder - Pink */
+        .box3 { background: #e2ece9; color: #4a5c57; } /* Treat - Mint */
+        .box4 { background: #cddafd; color: #43547a; } /* Hug - Baby Blue */
+
+        /* Display Area for Messages & Animations */
+        #display-area {
+            min-height: 80px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            display: none;
+            font-size: 1.1em;
+            color: #ff758f;
+            border: 2px dashed #ffccd5;
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Pure CSS Heartbeat Animation */
+        .css-heart {
+            position: relative;
+            width: 60px;
+            height: 55px;
+            margin: 20px auto;
+            animation: heartbeat 1.2s infinite;
+        }
+        .css-heart::before,
+        .css-heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 30px;
+            height: 45px;
+            border-radius: 30px 30px 0 0;
+            background: #ff4d6d;
+        }
+        .css-heart::before {
+            left: 30px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .css-heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.3); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* CSS Virtual Treat Falling Animation */
+        .falling-treat {
+            position: fixed;
+            top: -50px;
+            font-size: 30px;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear forwards;
+            z-index: 9999;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hey Ammai ❤️</h1>
-        <p class="subtitle">I know today feels a bit heavy. I built this tiny, quiet corner of the internet just for you, so you can rest for a second.</p>
+    <div class="card">
+        <h1>Hey Ammai 🌸</h1>
+        <p class="subtitle">A tiny, cute space just for you.</p>
         
-        <div class="btn-group">
-            <button onclick="showReminder()">A Little Reminder</button>
-            <button onclick="showHug()">Need a Hug?</button>
-            <button onclick="toggleBreathe()">Breathe With Me</button>
+        <div class="grid">
+            <!-- Replace "YOUR_YOUTUBE_LINK_HERE" with her actual playlist link -->
+            <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="box box1">Need a<br>Distraction 🎵</a>
+            <div class="box box2" onclick="showReminder()">A Little<br>Reminder 💌</div>
+            <div class="box box3" onclick="triggerTreat()">Virtual<br>Treat 🍰</div>
+            <div class="box box4" onclick="showHug()">Emergency<br>Hug 🧸</div>
         </div>
 
-        <div class="breathe-container" id="breathe-container">
-            <div class="breathe-circle"></div>
-        </div>
-
-        <div id="message-box"></div>
+        <div id="display-area"></div>
     </div>
 
     <script>
-        // Array of comforting messages
-        const messages = [
-            "You are the strongest girl I know. Take all the time you need today.",
-            "I'm so proud of you, and I am right here with you.",
-            "It's okay if all you did today was simply survive. That's enough.",
-            "Drink a little water, put on your comfiest clothes, and just rest.",
-            "You are my whole world. This heavy feeling will pass, but my love won't.",
-            "Whenever you're ready, I'm here. Even if we just sit in silence together."
+        const displayArea = document.getElementById('display-area');
+
+        // Edit these reminders to say whatever you want!
+        const reminders = [
+            "You're the cutest. I love you so much!",
+            "I know you're feeling uncomfy, but I'm right here with you.",
+            "Take a deep breath. You are doing amazing.",
+            "You mean the whole world to me. Go rest a bit! 💕"
         ];
 
-        const messageBox = document.getElementById('message-box');
-        const breatheContainer = document.getElementById('breathe-container');
+        function clearDisplay() {
+            displayArea.style.display = 'none';
+            displayArea.innerHTML = '';
+        }
 
-        function hideBreathe() {
-            breatheContainer.style.display = 'none';
+        function showDisplay() {
+            displayArea.style.display = 'flex';
         }
 
         function showReminder() {
-            hideBreathe();
-            // Pick a random message from the array
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            messageBox.innerHTML = "✨ <strong>" + messages[randomIndex] + "</strong> ✨";
-            messageBox.style.display = 'block';
+            clearDisplay();
+            const randomIndex = Math.floor(Math.random() * reminders.length);
+            displayArea.innerHTML = "<strong>" + reminders[randomIndex] + "</strong>";
+            showDisplay();
         }
 
         function showHug() {
-            hideBreathe();
-            messageBox.innerHTML = "🫂 <strong>Sending you the biggest, warmest virtual hug!</strong><br><br>Imagine me wrapping my arms around you tightly until you feel safe. I've got you.";
-            messageBox.style.display = 'block';
+            clearDisplay();
+            displayArea.innerHTML = "<strong>Sending a giant, squishy hug!</strong><div class='css-heart'></div>";
+            showDisplay();
         }
 
-        function toggleBreathe() {
-            messageBox.style.display = 'none';
-            messageBox.innerHTML = "<em>Inhale slowly as the circle grows...<br>Exhale as it shrinks. Take your time.</em>";
-            messageBox.style.display = 'block';
-            breatheContainer.style.display = 'flex';
+        function triggerTreat() {
+            clearDisplay();
+            displayArea.innerHTML = "<strong>Incoming treats! Look at the screen! 🍬✨</strong>";
+            showDisplay();
+            
+            // This creates a cute shower of CSS emojis falling down the screen
+            const treats = ['🍭', '🍫', '🌸', '✨', '🍓', '🍰'];
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const treat = document.createElement('div');
+                    treat.classList.add('falling-treat');
+                    treat.innerText = treats[Math.floor(Math.random() * treats.length)];
+                    treat.style.left = Math.random() * 100 + 'vw';
+                    treat.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(treat);
+                    
+                    // Cleanup elements after animation
+                    setTimeout(() => { treat.remove(); }, 5000);
+                }, i * 100);
+            }
         }
     </script>
 
