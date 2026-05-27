@@ -172,7 +172,7 @@
         <p class="subtitle">A tiny, cute space just for you.</p>
         
         <div class="grid">
-            <!-- Replace "YOUR_YOUTUBE_LINK_HERE" with her actual playlist link -->
+            <!-- Your YouTube link is safely embedded here -->
             <a href="https://youtube.com/playlist?list=PL5XH-JDaLdWHpFlYNi2CUmgePwhyelU22&si=Ab7MWJ-EtGqoiEUM" target="_blank" class="box box1">Need a<br>Distraction 🎵</a>
             <div class="box box2" onclick="showReminder()">A Little<br>Reminder 💌</div>
             <div class="box box3" onclick="triggerTreat()">Virtual<br>Treat 🍰</div>
@@ -186,18 +186,8 @@
         const displayArea = document.getElementById('display-area');
         let chocolateCount = 0;
 
-        // Edit these reminders to say whatever you want!
-        const reminders = [
-            "My sweetest ammai 🌸, I know you are going through so much right now. What your body is putting you through isn't easy, and having to balance all this emotional exhaustion with the heavy pressure of your studies is a lot for anyone to handle 📚✨.
-
-
-
-I know how draining these mood swings are and how heavy everything feels right now 🥺, but please never feel guilty for any of it 🫂.
-
-
-
-I am right here with you 💕. Through every mood swing, every stressful study session, and every single phase of your life, I've got you 🤝. Rest when you need to 🧸, be gentle with yourself today, and know that I am always, always in your corner. I love you. ❤️🥺"
-        ];
+        // This holds the letter on one continuous line so the script doesn't break, using <br><br> for visual spacing
+        const loveLetter = "My sweetest Babe 🌸, I know you are going through so much right now. What your body is putting you through isn't easy, and having to balance all this emotional exhaustion with the heavy pressure of your studies is a lot for anyone to handle 📚✨.<br><br>I know how draining these mood swings are and how heavy everything feels right now 🥺, but please never feel guilty for any of it 🫂.<br><br>I am right here with you 💕. Through every mood swing, every stressful study session, and every single phase of your life, I've got you 🤝. Rest when you need to 🧸, be gentle with yourself today, and know that I am always, always in your corner. I love you. ❤️🥺";
 
         function clearDisplay() {
             displayArea.style.display = 'none';
@@ -211,8 +201,8 @@ I am right here with you 💕. Through every mood swing, every stressful study s
 
         function showReminder() {
             clearDisplay();
-            const randomIndex = Math.floor(Math.random() * reminders.length);
-            displayArea.innerHTML = "<strong>" + reminders[randomIndex] + "</strong>";
+            // This displays your letter cleanly aligned
+            displayArea.innerHTML = "<div style='text-align: left; font-size: 0.95em; line-height: 1.6; color: #5c4d5c;'>" + loveLetter + "</div>";
             showDisplay();
         }
 
